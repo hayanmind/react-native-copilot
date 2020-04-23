@@ -10,7 +10,7 @@ import hoistStatics from 'hoist-non-react-statics';
 import CopilotModal from '../components/CopilotModal';
 import { OFFSET_WIDTH } from '../components/style';
 
-import { getFirstStep, getLastStep, getStepNumber, getPrevStep, getNextStep } from '../utilities';
+import { getFirstStep, getLastStep, getStepNumber, getPrevStep, getNextStep, getAllStepsNumber } from '../utilities';
 
 import type { Step, CopilotContext } from '../types';
 
@@ -70,6 +70,8 @@ const copilot = ({
       componentWillUnmount() {
         this.mounted = false;
       }
+
+      getAllStepsNumber = (): number => getAllStepsNumber(this.state.steps);
 
       getStepNumber = (step: ?Step = this.state.currentStep): number =>
         getStepNumber(this.state.steps, step);
@@ -206,6 +208,7 @@ const copilot = ({
               visible={this.state.visible}
               isFirstStep={this.isFirstStep()}
               isLastStep={this.isLastStep()}
+              allStepsNumber={this.getAllStepsNumber()}
               currentStepNumber={this.getStepNumber()}
               currentStep={this.state.currentStep}
               labels={labels}

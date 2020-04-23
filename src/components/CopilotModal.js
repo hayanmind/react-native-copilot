@@ -10,6 +10,7 @@ type Props = {
   stop: () => void,
   next: () => void,
   prev: () => void,
+  allStepsNumber: number,
   currentStepNumber: number,
   currentStep: ?Step,
   visible: boolean,
@@ -289,6 +290,8 @@ class CopilotModal extends Component<Props, State> {
           handlePrev={this.handlePrev}
           handleStop={this.handleStop}
           labels={this.props.labels}
+          allStepsNumber={this.props.allStepsNumber}
+          currentStepNumber={this.props.currentStepNumber}
         />
       </Animated.View>,
     ];

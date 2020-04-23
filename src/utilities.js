@@ -14,6 +14,10 @@ export const getStepNumber = (steps: Array<Step>, step: ?Step): number => step
     .values(steps)
     .filter(_step => _step.order <= step.order).length;
 
+export const getAllStepsNumber = (steps: Array<Step>): number => Object
+  .values(steps)
+  .length;
+
 export const getPrevStep = (steps: Array<Step>, step: ?Step): number => Object
   .values(steps)
   .filter(_step => _step.order < step.order)
