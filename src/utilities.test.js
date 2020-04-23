@@ -111,6 +111,23 @@ describe('getStepNumber', () => {
   });
 });
 
+describe('getAllStepsNumber', () => {
+  test('empty steps array', () => {
+    const allStepNumber = utilities.getAllStepsNumber([]);
+    expect(allStepNumber).toBe(0);
+  });
+
+  test('non-empty steps array', () => {
+    const steps = [
+      { name: 'Step1', order: 1 },
+      { name: 'Step2', order: 2 },
+      { name: 'Step3', order: 3 },
+    ];
+
+    expect(utilities.getAllStepsNumber(steps)).toBe(3);
+  });
+});
+
 describe('getPrevStep', () => {
   test('empty steps array', () => {
     const prevStep = utilities.getPrevStep([], null);
