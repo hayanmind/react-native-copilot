@@ -176,8 +176,9 @@ const copilot = ({
       }
 
       stop = async (): void => {
+        const { steps } = this.state;
         await this.setVisibility(false);
-        this.eventEmitter.emit('stop');
+        this.eventEmitter.emit('stop', { steps });
       }
 
       async moveToCurrentStep(): void {
