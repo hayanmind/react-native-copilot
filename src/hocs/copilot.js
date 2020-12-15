@@ -181,6 +181,10 @@ const copilot = ({
         this.eventEmitter.emit('stop', { steps });
       }
 
+      pause = async (): void => {
+        await this.setVisibility(false);
+      }
+
       async moveToCurrentStep(): void {
         const size = await this.state.currentStep.target.measure();
 
@@ -199,6 +203,7 @@ const copilot = ({
               {...this.props}
               start={this.start}
               stop={this.stop}
+              pause={this.pause}
               currentStep={this.state.currentStep}
               visible={this.state.visible}
               copilotEvents={this.eventEmitter}
